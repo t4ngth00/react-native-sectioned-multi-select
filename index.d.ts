@@ -77,6 +77,7 @@ export interface SectionedMultiSelectProps<ItemType> {
   modalAnimationType?: string
   modalWithSafeAreaView?: boolean
   modalWithTouchable?: boolean
+  modalStatusBarTranslucent?: boolean
   hideSearch?: boolean
   footerComponent?: (() => void) | JSX.Element
   stickyFooterComponent?: (() => void) | JSX.Element
@@ -103,7 +104,7 @@ export interface SectionedMultiSelectProps<ItemType> {
   expandDropDowns?: boolean
   animateDropDowns?: boolean
   customLayoutAnimation?: object
-  filterItems?: (searchTerm: string) => void
+  filterItems?: (searchTerm: string, items: ItemType[], props: object) => void
   onToggleSelector?: (selected: boolean) => void
   noItemsComponent?: (() => void) | JSX.Element
   customChipsRenderer?: (chipProperties: object) => void
@@ -150,4 +151,6 @@ export default class SectionedMultiSelect<ItemType> extends React.Component<
   SectionedMultiSelectProps<ItemType>
 > {
   _toggleSelector: () => void
+  _clearSearchTerm: () => void
+  _closeSelector: () => void
 }
